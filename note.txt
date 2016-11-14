@@ -1,0 +1,20 @@
+NOTE:
+
+
+25\10
+
+segnali assenti da troppo tempo -> fucking sopsetto
+
+l 'interfaccia grafica procede bene ho fatto daily check finito devo solo interfacciarlo con portafoglio reactive anche quello finito
+ora sto vedendo la parte di singlecheck abbastanza impegnativa un sacco di problemi ma si imparano cose nuove, self development interessate( stackoverflow)
+fra ieri e oggi lavorato:12 ore
+
+17\10\2016
+
+CPLA -1.33% 
+
+errore nel segnale tether -> stavo usando 50 al posto che 25 : FALSO
+serve interfaccia grafica per sistemare ste cose -> SERVE INTERFACCIA GRAFICA!
+usare machine learning per definire i parametri migliori -> costanti o no? e se lo definisse ogni volta titolo per titolo?
+
+si potrebbe acquisire esperienza come di un trader esperto sul singolo titolo
