@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HERMes - algorithmic trading platform</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<script src="shared/jquery.js" type="text/javascript"></script>
+	<script src="shared/shiny.js" type="text/javascript"></script>
+  <script src="shared/babel-polyfill.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="shared/shiny.css"/>
+	<script type="text/javascript" src="jquery-3.1.1.js"></script>
+	<script type="text/javascript" src="bootstrap.min.js"></script>
+	<script type="text/javascript" src="UI.js"></script>
+	<link rel="stylesheet" type="text/css" href="UI.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+  <script src="http://cdn.oesmith.co.uk/morris-0.4.1.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/dygraph/1.1.1/dygraph-combined.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">  <script type="application/shiny-singletons"></script>  <script type="application/html-dependencies">json2[2014.02.04];jquery[1.12.4];babel-polyfill[6.7.2];shiny[0.14];selectize[0.11.2];htmlwidgets[0.7];dygraphs[1.1.1];moment[2.8.4];moment-timezone[0.2.5];dygraphs-binding[1.1.1.2];bootstrap[3.3.7]</script><script src="shared/json2-min.js"></script>
+  <script src="shared/jquery.min.js"></script>
+  <script src="shared/babel-polyfill.min.js"></script>
+  <link href="shared/shiny.css" rel="stylesheet">
+  <script src="shared/shiny.min.js"></script>
+  <link href="shared/selectize/css/selectize.bootstrap3.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="shared/selectize/js/es5-shim.min.js"></script>
+  <![endif]-->
+  <script src="shared/selectize/js/selectize.min.js"></script>
+  <script src="htmlwidgets-0.7/htmlwidgets.js"></script>
+  <link href="dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+  <script src="dygraphs-1.1.1/dygraph-combined.js"></script>
+  <script src="moment-2.8.4/moment.js"></script>
+  <script src="moment-timezone-0.2.5/moment-timezone-with-data.js"></script>
+  <script src="dygraphs-binding-1.1.1.2/dygraphs.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.3.0/bootstrap-slider.js" type="text/javascript"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.3.0/bootstrap-slider.min.js"></script>
+  <style src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.3.0/css/bootstrap-slider.css" type="text/css"></style>
+  <style type="text/css" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.3.0/css/bootstrap-slider.min.css"></style>
+  <link href="shared/ionrangeslider/css/ion.rangeSlider.css" rel="stylesheet">
+  <link href="shared/ionrangeslider/css/ion.rangeSlider.skinShiny.css" rel="stylesheet">
+  <script src="shared/ionrangeslider/js/ion.rangeSlider.min.js"></script> 
+  <script src="shared/strftime/strftime-min.js"></script>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="font: Lato, sans-serif">
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+     <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#" style="font-size: 30px;">HERMes</a>
+     </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#dcheck">DailyCheck</a></li>
+        <li><a href="#scheck">SingleCheck</a></li>
+        <li><a href="#backtesting">Backtesting</a></li>
+      </ul>
+     </div>
+  </div>
+</nav>
+<div class="jumbotron">
+	<button id="title" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#Presentation_Modal" style="border-color: gray;"><h1><a href="#" style="color: white; text-decoration: none; font-size: 120px;opacity: 1 !important;"> HERMes </a></h1></button>
+	<h4 id="subtitle">a platform for algorithmic trading entirely developed by the Alessandro Solbiati</h4>
+  <h4 style="color: white;">IT Department of Investment Club Milano</h4>
+   <!-- Modal -->
+  <div class="modal fade" id="Presentation_Modal" role="dialog">
+    <div class="modal-dialog" style="width:80%; margin: 150px auto;">
+    
+      <!-- Modal content-->
+      <div class="modal-content" style="background-color: black; color: white;">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3 class="modal-title">The three cores of HERMes</h4>
+          
+        </div>
+        <div class="modal-body container-fluid text-center">
+          <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+              <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <h1>Trading Algorithm</h1>
+              <p class="description">A Trend-based Trading Algorithm that uses a combination of three financial indicator to individuate the start of a possible long-term trend in the prices of a stock.</p>
+            </div>
+            <div class="item">
+              <h1>Risk Management</h1> 
+              <p class="description" ">An implementation on R of the Exponential-Weighted Moving-Average model for volatility by RiskMetrics™ (JPMorgan and Reuters 1996), used to dinamically model and compute the risk associated with and asset's return.</p>
+            </div>
+            <div class="item">
+              <h1>User Interface</h1>
+              <p class="description">A one-page web application with features like Portfolio Management, Daily Check, Single Check and Backtesting that provides the user an intuitive interface to access the full power of HERMes</p>
+            </div> 
+          </div>
+          <!-- Left and right controls -->
+          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+        
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+<div id="portfolio" class="container-fluid cont1">
+	<div class="row" style="height: 300px; position: relative; top: 50px;">
+		<div class="col-sm-8">
+			<h1 class="slideanim" style="font-size: 60px">Portfolio Management</h1>
+			<p class="slideanim" style="width: 70%">A section for the management of trading positions</p>
+      <ul class="slideanim">
+        <li class="slideanim">My Portfolio: titles that HERMes is going to evaluate</li>
+        <li class="slideanim">Long Positions: titles on which is currently open a Long Position</li>
+        <li class="slideanim">Short Positions: titles on which is currently open a Short Position</li>
+      </ul>
+		</div>
+		<div class="col-sm-4">
+			<div class="form-group slideanim" style="width: 130%; margin-left: -30%;">
+  				<label >My Portfolio</label>
+  				<input type="text" class="form-control" id="p_titles">
+  				<label >My Long Positions</label>
+  				<input type="text" class="form-control" id="up_titles">
+  				<label >My Short Positions</label>
+  				<input type="text" class="form-control" id="down_titles">
+			</div>
+		</div>
+	</div>	
+</div>
+<div id="my_positions" class="container-fluid cont2">
+	<div class="row">
+		<div class="col-sm-3" >
+      
+      <div id="portfolio_donut"></div>
+		</div>
+		<div class="col-sm-3">
+      <div style="padding:20px; font-size: 20px;">Not positioned </div>
+			<div id="table_p_titles" class="shiny-html-output" style="max-height: 300px; overflow: auto;"></div>
+		</div>
+    <div class="col-sm-3">
+      <div style="padding:20px; font-size: 20px;">Long Positions</div>
+      <div id="table_up_titles" class="shiny-html-output" style="max-height: 300px; overflow: auto;"></div>
+    </div>
+    <div class="col-sm-3">
+      <div style="padding:20px; font-size: 20px;">Short Positions</div>
+      <div id="table_down_titles" class="shiny-html-output" style="max-height: 300px; overflow: auto;"></div>
+    </div>
+	</div>
+</div>
+<div class="container-fluid cont3"></div>
+<div id="dcheck" class="container-fluid text-center cont4">
+  <div class="row content">
+    <div class="col-sm-3 sidenav hidden-xs">
+      <h1 id="dcheck_title">Daily Check</h1>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><button id="Start_HERMes" type="button" class="btn btn-primary active my_btn action-button">Start HERMes</button></li>
+        <li><button id="Display_Outcome" type="button" class="btn btn-primary disabled my_btn">Display Outcome</button></li>
+      </ul><br>
+    </div>
+    <br>
+    
+    <div class="col-sm-9">
+    	<ul class="nav nav-tabs">
+    		<li class="active"><a class="tab_tabs" data-toggle="tab" href="#not_pos">not positioned</a></li>
+    		<li><a class="tab_tabs" data-toggle="tab" href="#ups">Up positions</a></li>
+    		<li ><a class="tab_tabs" data-toggle="tab" href="#downs">Down positions</a></li>
+ 		</ul>
+ 		<div class="tab-content">
+    		<div id="not_pos" class="tab-pane fade in active" style="max-height: 450px; overflow: auto;">
+    			<table id="output_table" class="table table-hover table_dc">
+      				<thead>
+      					<tr>
+      						<th>Name</th>
+      						<th>Outcome</th>
+      					</tr>
+      				</thead>
+      				<tbody id="output_table_body_nyp">
+      				</tbody>
+      			</table>
+      		</div>
+    		<div id="ups" class="tab-pane fade" style="max-height: 700px; overflow: auto;">
+    			<table id="output_table" class="table table-hover table_dc">
+      				<thead>
+      					<tr>
+      						<th>Name</th>
+      						<th>Outcome</th>
+      					</tr>
+      				</thead>
+      				<tbody id="output_table_body_ups">
+      				</tbody>
+      			</table>
+    		</div>
+    		<div id="downs" class="tab-pane fade" style="max-height: 700px; overflow: auto;">
+    			<table id="output_table" class="table table-hover table_dc">
+      				<thead>
+      					<tr>
+      						<th>Name</th>
+      						<th>Outcome</th>
+      					</tr>
+      				</thead>
+      				<tbody id="output_table_body_downs">
+      				</tbody>
+      			</table>
+     		</div>
+  		</div>
+     </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid cont3"></div>
+<div id="scheck" class="container-fluid text-center cont5">
+  <div class="row_content">
+    <div class="col-sm-3"> 
+      <h1 id="dcheck_title">Single Check</h1>
+      <div class="well" style="width: 300px">
+        <div id="scheck_title"></div>
+        <div id="scheck_signal"></div>
+      </div>
+      <div class="form-group well" style="width: 300px">
+        <label for="usr">Name:</label>
+        <input type="text" class="form-control" id="title_name"> 
+      </div> 
+      <div class="well" style="width: 300px">
+        <label>Time interval:</label>  
+        <input class="js-range-slider irs-hidden-input shiny-bound-input" id="time_length" data-type="double" data-min="-300" data-max="0" data-from="-100" data-to="0" data-step="1" data-grid="true" data-grid-num="10" data-grid-snap="false" data-prettify-separator="," data-keyboard="true" data-keyboard-step="1" data-drag-interval="true" data-data-type="number" readonly="" style="display: none">  
+      </div>   
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><button id="Start_HERMes_scheck" type="button" class="btn btn-primary active my_btn action-button" style="margin-top: 0px">Start HERMes</button></li>
+      </ul>
+    </div>
+    <div class="col-sm-9">
+      <div id="scheck_graph_A" class="shiny-html-output"></div>
+      <div id="scheck_graph_B" class="shiny-html-output" style=""></div>
+      <div class="row">
+        <div id="toggle_alg_oc" class="col-sm-5 open_box" style="width: 50%; margin-left:7%;">
+          Algorithm outcome
+        </div>
+        <div id="toggle_rm_oc" class="col-sm-4 open_box" style="width: 40%; margin-left:2%;">
+          Risk Management outcome
+        </div>
+      </div>
+      <div class="row">
+        <div id="alg_oc" class="col-sm-5 opened_box" style="width: 50%; margin-left:7%;">
+          <table class="table table-hover table_dc">
+            <tr class="myrw">
+              <td style="text-align: left">yesterday price:</td>
+              <td id="yesterday_price" class="shiny-text-output" style="text-align: right;"></td>
+            </tr>
+            <tr class="myrw">
+              <td style="text-align: left">today price:</td>
+              <td id="today_price" class="shiny-text-output" style="text-align: right;"></td>
+            </tr>
+            <tr class="myrw">
+              <td style="text-align: left">yesterday Tether-Line:</td>
+              <td id="yesterday_Tether_Line" class="shiny-text-output" style="text-align: right;"></td>
+            </tr>
+            <tr class="myrw">
+              <td style="text-align: left">today Tether-Line:</td>
+              <td id="today_Tether_Line" class="shiny-text-output" style="text-align: right;"></td>
+            </tr>
+            <tr class="myrw">
+              <td style="text-align: left">today HM:</td>
+              <td id="today_HMA" class="shiny-text-output" style="text-align: right;"></td>
+            </tr>
+            <tr class="myrw">
+              <td style="text-align: left">today ADX:</td>
+              <td id="today_ADX" class="shiny-text-output" style="text-align: right;"></td>
+            </tr>
+            
+          </table>
+        </div>
+        <div id="rm_oc" class="col-sm-4 opened_box" style="width: 40%; margin-left:2%;">
+          <div class="row">
+            <div class="col-sm-6" style="height: 100%;">
+              <table class="table table-hover table_dc">
+                <tr>
+                  <td>extimated VaR:</td>
+                  <td id="extimated_VaR" class="shiny-text-output"></td>
+                </tr>
+                <tr>
+                  <td>extimated EF:</td>
+                  <td id="extimated_EF" class="shiny-text-output"></td>
+                </tr>
+                <tr>
+                  <td>mean VaR:</td>
+                  <td id="extimated_mean_VaR" class="shiny-text-output"></td>
+                </tr>
+                <tr>
+                  <td>extimation p-value:</td>
+                  <td id="extimation_p_value" class="shiny-text-output"></td>
+                </tr>
+                <tr>
+                  <td>extimation confidence:</td>
+                  <td id="extimation_confidence" class="shiny-text-output"></td>
+                </tr>
+                
+              </table>
+            </div>
+            <div class="col-sm-3" style="height: 200px; width: 100px; background-color: white;margin: 10%;margin-left: 15%;margin-right: 0;">
+              <div class="skill">
+                <div style="margin-left:25px;" class="outer">
+                  <div id="cap_bar" class="inner" data-progress="92%">
+                    <div><span id="cap_position_bar" class="shiny-text-output"></span>$</div>
+                  </div>        
+                </div>
+                <button style="padding: 5px;margin: 5px;width: 120px;" class="well">Show value</button>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="well">
+              <div style="font-size: 20px">Position: <span id="cap_position" class="shiny-text-output"></span>$</div>
+              <div>(Max Position: <span>1000</span>$)</div>
+              <div>(Med Position: <span>700</span>$)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+
+  </div>
+
+</div>
+<div class="container-fluid cont3"></div>
+<div id="backtesting" class="container-fluid text-center cont4">
+	<h1 class="slideanim">Backtesting</h1>
+
+</div>
+<div class="container-fluid cont3" style="height: 100px">
+	<h1>Entirely developed by Alessandro Solbiati</h1>
+	<h3>Head of Information Technology Department at Investment Club Milano</h3>
+</div>
+<div id="shiny_links">
+  <div id="non_pos_titoli" class="shiny-text-output" style="color:white"></div> 
+  <div id="ups_titoli" class="shiny-text-output" style="color:white"></div>
+  <div id="downs_titoli" class="shiny-text-output" style="color:white"></div>
+  <div id="HERMes_output_index" class="shiny-text-output" style="color:white"></div>
+  <div id="HERMes_output_content" class="shiny-text-output" style="color:white"></div>
+</div>
+
+</body>
+</html>
