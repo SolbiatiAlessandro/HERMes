@@ -18,6 +18,7 @@
       <a href="https://github.com/SolbiatiAlessandro/HERMes" class="btn">View on GitHub</a>
       <a href="https://github.com/SolbiatiAlessandro/HERMes/zipball/master" class="btn">Download .zip</a>
       <a href="https://github.com/SolbiatiAlessandro/HERMes/tarball/master" class="btn">Download .tar.gz</a>
+      <a class="btn">View introduction video</a>
     </section>
 
     <section class="main-content">
@@ -27,6 +28,8 @@
 <p>A platform for algorithmic trading developed by the IT Dept of Investment Club Milano</p>
 
 <hr>
+      
+<img src="hermes1.png" />
 
 <p></p><h1>
 <a id="the-three-cores-of-hermes-trading-algorithm" class="anchor" href="#the-three-cores-of-hermes-trading-algorithm" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The three Cores of HERMes<h1>
@@ -36,20 +39,24 @@
 <a id="trading-algorithm" class="anchor" href="#trading-algorithm" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Trading Algorithm</h2>
 
 </h1>
-</h1><p>A Trend-based Trading Algorithm that uses a combination of three financial indicator to individuate the start of a possible long-term trend in the prices of a stock.</p>
-            
+</h1><p>A Trend-based Trading Algorithm that uses a combination of three financial indicator, namely HMA, TetherLine and ADX, to individuate the start of a possible long-term trend in the prices of a stock.
+      If you want to know more about the theoretical functioning of the trend-based algorithm, I recently wrote an article<a href="https://investmentclubmilano.com/2016/06/18/a-trend-oriented-trading-system-hma-tfs-tether-line/">(a Trend-Oriented trading system)</a>on our website InvestmentClubMilano about it. 
+      On the practical side, I implemented the financial indicators as well as the algorithm's functions in R and consequently used them in the server-side of the Web Application.   </p>
 
 <h2>
 <a id="risk-management" class="anchor" href="#risk-management" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Risk Management</h2> 
 
-<p>An implementation on R of the Exponential-Weighted Moving-Average model for volatility by RiskMetrics™ (JPMorgan and Reuters 1996), used to dinamically model and compute the risk associated with and asset's return.</p>
-            
+<p>An implementation on R of the Exponential-Weighted Moving-Average model for volatility by RiskMetrics™ (JPMorgan and Reuters 1996), used to dinamically model and compute the risk associated with and asset's return.
+      I also wrote another article (<a href="https://investmentclubmilano.com/2016/08/01/case-study-risk-evaluation-on-major-italian-banks-with-investmentclubmilano-software-ewma_riskmetrics/">EWMA_RiskMetrics()</a>) explaining the functioning of the risk evaluation part of the software.</p>   
 
 <h2>
 <a id="user-interface" class="anchor" href="#user-interface" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>User Interface</h2>
 
-<p>A one-page web application with features like Portfolio Management, Daily Check, Single Check and Backtesting that provides the user an intuitive interface to access the full power of HERMes</p>
-
+<p>A one-page web application with features like Portfolio Management, Daily Check, Single Check and Backtesting that provides the user an intuitive interface to access the full power of HERMes. Here you can find some screenshot from the user-interface.</p>
+<img style="margin-top:20px;" src="hermes2.png" />
+<img style="margin-top:20px;" src="hermes3.png" />
+<img style="margin-top:20px;" src="hermes4.png" />
+<img style="margin-top:20px;" src="hermes5.png" />
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/SolbiatiAlessandro/HERMes">Hermes</a> is maintained by <a href="https://github.com/SolbiatiAlessandro">SolbiatiAlessandro</a>.</span>
 
