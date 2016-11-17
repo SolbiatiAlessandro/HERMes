@@ -1,5 +1,6 @@
 #given the ohlc and the date return a five element vector with VaR, EF, pvalue, confidence, and meanVaR
 source("study.R")
+source("interest.R")
 get_risk <-function(data_ohlc,date,end_delta=100,debug=0,n_mean=100,capt=1000,cap_med_fact=0.7){
 	
 	sst_closure <- data_ohlc[,4]
