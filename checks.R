@@ -172,7 +172,7 @@ daily_check_complete <- function(titoli, ups = c(), downs = c(), updateProgress=
 
 		if(signs[i]==0.5) cat("se domani apre sopra thether ENTRA LONG su", titoli[i])
 		else if(signs[i]==-0.5) cat("se domani apre sotto theter ENTRA SHORT su", titoli[i])
-		else cat("su",titoli[i],"oggi non c'é segnale\n")
+		else cat("su",titoli[i],"oggi no segnale\n")
 
 	}
 	
