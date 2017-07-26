@@ -1,6 +1,8 @@
 # HERMes
 A platform for algorithmic trading developed by the IT Dept of Investment Club Milano
 
+proj. page -> https://solbiatialessandro.github.io/HERMes/
+
 -----
 <h1>The three Cores of HERMes<h1> 
 
